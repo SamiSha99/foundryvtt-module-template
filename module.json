@@ -1,0 +1,22 @@
+{
+    "id": "module-template",
+    "title": "Module Template",
+    "description": "A template for creating Foundry VTT modules.",
+    "version": "#{VERSION}#",
+    "compatibility": {
+        "minimum": "14",
+        "verified": "14"
+    },
+    "esmodules": ["scripts/module.js"],
+    "styles": ["styles/module.css"],
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "lang/en.json"
+        }
+    ],
+    "url": "#{URL}#",
+    "manifest": "#{MANIFEST}#",
+    "download": "#{DOWNLOAD}#"
+}
