@@ -1,0 +1,35 @@
+# Renames the module to match the repository name when a repository is
+# created from this template, so the id in module.json matches the folder
+# Foundry loads it from. Runs once on the first push, or manually from the
+# Actions tab.
+# Does nothing in the template repository itself.
+name: Template Setup
+
+on:
+    push:
+    workflow_dispatch:
+
+jobs:
+    setup:
+        if: ${{ !endsWith(github.repository, '/foundryvtt-module-template') && (github.event_name == 'workflow_dispatch' || github.run_number == 1) }}
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v7
+
+            - name: Set Module Id From Repository Name
+              run: node tools/setup-template.mjs "${GITHUB_REPOSITORY#*/}"
+
+            # Pushes made with GITHUB_TOKEN don't trigger other workflows, so this won't loop.
+            - name: Commit Changes
+              run: |
+                  git config user.name "github-actions[bot]"
+                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  git add -A
+                  git diff --cached --quiet && exit 0
+                  git commit -m "Set module id to repository name"
+                  git push origin "HEAD:${GITHUB_REF}"
+

@@ -1,2 +1,15 @@
 # From https://foundryvtt.wiki/en/development/guides/improving-intellisense
-installPath: "C:\\Path\\To\\Foundry\\Version ??"
+# Only needed when Foundry isn't in the default location for your OS.
+# Uncomment and set whichever of the two you need.
+
+# Foundry install folder.
+#   Windows default: "C:\\Users\\<you>\\AppData\\Local\\Programs\\Foundry Virtual Tabletop"
+#   macOS default:   "/Applications/Foundry Virtual Tabletop.app"
+#   Linux:           no default, wherever you extracted Foundry
+# installPath: "C:\\Path\\To\\Foundry\\Version ??"
+
+# Foundry user data folder (the one containing Data/).
+#   Windows default: "C:\\Users\\<you>\\AppData\\Local\\FoundryVTT"
+#   macOS default:   "~/Library/Application Support/FoundryVTT"
+#   Linux default:   "~/.local/share/FoundryVTT"
+# dataPath: "C:\\Path\\To\\FoundryVTT"
