@@ -6,19 +6,17 @@ Focuses on having local Intellisense without using package library like `fvtt-ty
 
 ## Usage
 
-When installed clone [example-foundry-config.yaml](./example-foundry-config.yaml) and call it `foundry-config.yaml`, then inside add the path to the root installation directory of your foundry:
+Create a repository from this template, the module's `id` will be renamed to match the repository's name.
 
-```yaml
-installPath: "C:\\Path\\To\\Foundry\\Version ??"
-```
-
-Then afterward, run the following commands:
+Then run the following command:
 
 ```
-npm i && npm run createSymlinks
+npm i
 ```
 
-And done! You can now develop using local intellisense provided through the symlink you just made running the script.
+And done! You can now develop using local intellisense, and your module is symlinked into Foundry's modules folder.
+
+If Foundry isn't installed in its default location, clone [example-foundry-config.yaml](./example-foundry-config.yaml) and call it `foundry-config.yaml`, then set `installPath` and/or `dataPath` inside.
 
 ## Acknowledgment
 
